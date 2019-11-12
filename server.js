@@ -1,10 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const passport= require("password");
-const path= require("path");
+const passport = require('passport');
+const path = require('path');
+const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts');
 
-const app=express();
+const app = express();
 
 //Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,6 +23,9 @@ mongoose.connect(db)
         .catch(err=>{console.log(err);});
 
 //passport initialization
+app.use(passport.initialize());
+app.use('./config/passport')(passport);
 
+//
 
 
