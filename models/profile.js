@@ -114,4 +114,4 @@ const ProfileSchema = new Schema({
       default: Date.now
     }
   });
-module.exports=profile=mongoose.model(profile);
+module.exports=profile=mongoose.model(ProfileSchema);
